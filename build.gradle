@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+}
+
+group 'com.example'
+version '1.0.0'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  // If this dependency is added, the module version is recorded
+  // implementation 'com.google.code.gson:gson:2.8.7'
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.named('compileJava') {
+    options.release = 11
+    options.javaModuleVersion.set(project.version)
+}
+
